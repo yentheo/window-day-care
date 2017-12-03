@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "6"
+  - "node"
+before_script:
+  - npm install
+  - npm version preminor
+script:
+  - npm run compile
+  - npm publish --access=public
