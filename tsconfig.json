@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "es5",
+        "preserveConstEnums": true,
+        "moduleResolution": "node",
+        "lib": [
+            "dom",
+            "es2015.collection",
+            "es2015.promise",
+            "es5"
+        ]
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
