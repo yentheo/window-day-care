@@ -2,6 +2,7 @@ import { ChildWindow } from './child-window';
 import { Iframe } from './iframe.child-window';
 import { PopUp } from './pop-up.child-window';
 
+/** Options for pop-up */
 export interface PopUpOptions {
     height?: number;
     width?: number;
@@ -15,6 +16,7 @@ export interface PopUpOptions {
     resizable?: boolean;
 }
 
+/** Default options */
 export const DefaultPopUpOptions: PopUpOptions = {
     height: 250,
     width: 250,
@@ -47,11 +49,20 @@ function extend(obj: { [key: string]: any }): PopUpOptions {
 
 }
 
+/**
+ * Opens a pop-up window.
+ * @param name name of the pop-up, if this is the same as an already open pop-up, there will be no new pop-up
+ * @param popUpOptions options for the pop-up, like width
+ */
 export function openPopUp(name: string = 'pop-up', popUpOptions: PopUpOptions = {}): ChildWindow {
     const options = optionsToString(popUpOptions);
     return new PopUp(window.open('', name, options));
 }
 
-export function openTab(name: string = 'pop-up'): ChildWindow {
+/**
+ * Opens a tab.
+ * @param name name of the tab, if this is the same as an already open tab, there will be no new tab
+ */
+export function openTab(name: string = 'tab'): ChildWindow {
     return new PopUp(window.open('', name));
 }
