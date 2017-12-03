@@ -1,6 +1,6 @@
-import { Iframe } from "./iframe.child-window";
-import { ChildWindow } from "./child-window";
-import { PopUp } from "./pop-up.child-window";
+import { ChildWindow } from './child-window';
+import { Iframe } from './iframe.child-window';
+import { PopUp } from './pop-up.child-window';
 
 export interface PopUpOptions {
     height?: number;
@@ -38,9 +38,9 @@ function optionsToString(options: PopUpOptions): string {
 
 function extend(obj: { [key: string]: any }): PopUpOptions {
     const extended: { [key: string]: any } = {};
-    for (let property in DefaultPopUpOptions) {
+    for (const property in DefaultPopUpOptions) {
         if (obj[property] === undefined) {
-            extended[property] = (<any>DefaultPopUpOptions)[property];
+            extended[property] = (DefaultPopUpOptions as any)[property];
         }
     }
     return extended;

@@ -1,8 +1,8 @@
-import { Iframe } from "./iframe.child-window";
-import { ChildWindow } from "./child-window";
+import { ChildWindow } from './child-window';
+import { Iframe } from './iframe.child-window';
 
 export function inject(target: HTMLElement): ChildWindow {
-    const iframe = document.createElement("iframe");
+    const iframe = document.createElement('iframe');
     iframe.style.display = 'none';
     target.appendChild(iframe);
     return new Iframe(iframe);

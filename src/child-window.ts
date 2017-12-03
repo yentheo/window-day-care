@@ -1,14 +1,12 @@
+import 'rxjs/add/operator/filter';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/filter';
 
 export abstract class ChildWindow {
     private _message$ = new Subject<any>();
-    public get message$(): Observable<any> { return this._message$.filter(x => !x['childWindowMessageType']); }
+    public get message$(): Observable<any> { return this._message$.filter(x => !x.childWindowMessageType); }
 
-    private _messageListener = (e: any): void => {
-        this._message$.next(e['data']);
-    };
+    private _messageListener = (e: any): void => this._message$.next(e.data);
 
     protected constructor(protected _window: Window) {
         window.addEventListener('message', this._messageListener);
@@ -24,12 +22,10 @@ export abstract class ChildWindow {
         this._cleanUp();
     }
 
-    protected abstract _cleanUp(): void;
-
     public setLocation(uri: string): Promise<void> {
         return new Promise(resolve => {
             const subscription = this._message$.subscribe(x => {
-                if (x['childWindowMessageType'] === ChildWindowMessageType.Loaded) {
+                if (x.childWindowMessageType === ChildWindowMessageType.Loaded) {
                     subscription.unsubscribe();
                     resolve();
                 }
@@ -37,6 +33,8 @@ export abstract class ChildWindow {
             this._window.location.href = uri;
         });
     }
+
+    protected abstract _cleanUp(): void;
 }
 
 export function isIframe(): boolean {
@@ -61,14 +59,14 @@ export class ChildWindowHost {
         }
     }
 
-    public sendMessage(message: any, targetOrigin: string = "*") {
+    public sendMessage(message: any, targetOrigin: string = '*') {
         this._parent.postMessage(message, targetOrigin);
     }
 }
 
 export function getChildWindowHost(): ChildWindowHost {
     if (!isIframe() && !isPopUp()) {
-        throw new Error("Can't create iframe-host in a window without parent");
+        throw new Error('Can\'t create iframe-host in a window without parent');
     }
     return new ChildWindowHost();
 }
@@ -83,8 +81,8 @@ if (isChildWindow()) {
         const message = {
             childWindowMessageType: ChildWindowMessageType.Loaded
         };
-        window.parent.postMessage(message, "*");
+        window.parent.postMessage(message, '*');
         window.document.removeEventListener('DOMContentLoaded', domContentLoadedHandler);
     };
-    window.document.addEventListener("DOMContentLoaded", domContentLoadedHandler);
+    window.document.addEventListener('DOMContentLoaded', domContentLoadedHandler);
 }

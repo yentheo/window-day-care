@@ -36,9 +36,9 @@ window-day-care is an npm package for easily creating pop-up windows and iframe-
 
 This library lets you open pop-ups, tabs and you can easily add iframes. They can all be added with helper-methods.
 
-* `injectIntoBody(): ChildWindow`
-* `inject(target: HTMLElement): ChildWindow`
-* `openTab(): ChildWindow`
-* `openPopUp(name: string, options: PopUpOptions): ChildWindow`
+* `injectIntoBody(): ChildWindow                                // injects an iframe into the body`
+* `inject(target: HTMLElement): ChildWindow                     // injects an iframe into the past element`
+* `openTab(): ChildWindow                                       // opens a new tab`
+* `openPopUp(name: string, options: PopUpOptions): ChildWindow  // opens a pop-up window`
 
 After opening a child window, you can set it's location with the `setLocation(url: string): Promise<void>` method. This method returns a _Promise-object_ that is resolved when the page is loaded.

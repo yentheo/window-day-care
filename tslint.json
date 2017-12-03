@@ -3,10 +3,7 @@
     "extends": [
         "tslint:recommended"
     ],
-    "rulesDirectory": [
-        "path/to/custom/rules/directory/",
-        "another/path/"
-    ],
+    "rulesDirectory": [],
     "rules": {
         "max-line-length": {
             "options": [
@@ -28,7 +25,19 @@
                 "trace"
             ]
         },
-        "eofline": true
+        "eofline": true,
+        "quotemark": [
+            true,
+            "single",
+            "avoid-escape",
+            "avoid-template"
+        ],
+        "arrow-parens": false,
+        "trailing-comma": false,
+        "variable-name": [false],
+        "max-classes-per-file": [false],
+        "interface-name": [false],
+        "member-ordering": [false]
     },
     "jsRules": {
         "max-line-length": {
