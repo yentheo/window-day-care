@@ -7,6 +7,7 @@ before_script:
   - npm version prepatch -f
 script:
   - npm run compile
+  - git add .
 deploy:
   provider: npm
   email: "yenthe@spectra.one"
