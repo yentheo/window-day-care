@@ -1,6 +1,6 @@
 {
   "name": "@spectra/window-day-care",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "A library to help you create popup windows and iframes. It makes communication between parent and child window a breeze.",
   "main": "index.js",
   "scripts": {
