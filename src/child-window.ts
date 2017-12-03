@@ -82,7 +82,6 @@ export class ChildWindowHost {
 /**
  * Returns the current child window host. This method should only be called when you are in a child window.
  * Use the {@link isChildWindow}-method to check whether this is the case.
- * @see isChildWindow
  */
 export function getChildWindowHost(): ChildWindowHost {
     if (!isIframe() && !isPopUp()) {
