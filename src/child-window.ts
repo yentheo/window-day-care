@@ -10,7 +10,7 @@ export abstract class ChildWindow {
         this._message$.next(e['data']);
     };
 
-    protected constructor(private _window: Window) {
+    protected constructor(protected _window: Window) {
         window.addEventListener('message', this._messageListener);
     }
 
