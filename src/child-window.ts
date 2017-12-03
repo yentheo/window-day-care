@@ -39,18 +39,35 @@ export abstract class ChildWindow {
     }
 }
 
-export function isChildWindow(): boolean {
+export function isIframe(): boolean {
     return window.parent !== window;
 }
 
+export function isPopUp(): boolean {
+    return window.opener !== null;
+}
+
+export function isChildWindow(): boolean {
+    return isIframe() || isPopUp();
+}
+
 export class ChildWindowHost {
+
+    private get _parent(): Window {
+        if (isIframe()) {
+            return window.parent;
+        } else if (isPopUp) {
+            return window.opener;
+        }
+    }
+
     public sendMessage(message: any, targetOrigin: string = "*") {
-        window.parent.postMessage(message, targetOrigin);
+        this._parent.postMessage(message, targetOrigin);
     }
 }
 
 export function getChildWindowHost(): ChildWindowHost {
-    if (!isChildWindow()) {
+    if (!isIframe() && !isPopUp()) {
         throw new Error("Can't create iframe-host in a window without parent");
     }
     return new ChildWindowHost();

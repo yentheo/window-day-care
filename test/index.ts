@@ -3,10 +3,11 @@ import { isChildWindow, getChildWindowHost } from "../src/child-window";
 
 // make sure our document is loaded
 window.addEventListener('load', () => {
+    console.log(isChildWindow());
     // check if we're in a child window
     if (!isChildWindow()) { // if not...
         // lets inject an iframe into the body
-        const iframe = injectIntoBody();
+        const iframe = openPopUp();
         // subscribe to the messages of the newly created iframe
         iframe.message$.subscribe(x => console.log(x));
         // set the iframe's location to our current application
