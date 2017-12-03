@@ -11,5 +11,5 @@ deploy:
   provider: npm
   email: "yenthe@spectra.one"
   api_key: $NPM_TOKEN
-  tag: 'beta'
+  tags: 'beta'
   skip_cleanup: true
