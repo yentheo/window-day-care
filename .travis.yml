@@ -2,6 +2,8 @@ language: node_js
 node_js:
   - "6"
   - "node"
+env:
+  - IS_TRAVIS=true
 before_script:
   - npm install
   - npm version preminor
