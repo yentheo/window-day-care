@@ -34,5 +34,9 @@
     "rxjs": "^5.5.3"
   },
   "typings": "dist/index",
-  "homepage": "https://github.com/yentheo/window-day-care"
+  "homepage": "https://github.com/yentheo/window-day-care",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yentheo/window-day-care"
+  }
 }
