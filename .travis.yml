@@ -4,7 +4,7 @@ node_js:
   - "node"
 before_script:
   - npm install
-  - npm version preminor
+  - npm version preminor -f
 script:
   - npm run compile
 deploy:

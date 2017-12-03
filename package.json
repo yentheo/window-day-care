@@ -7,8 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "webpack",
     "compile-test": "webpack --config webpack.config.test.js",
-    "tslint": "tslint --project src/tsconfig.json",
-    "ci-publish": "ci-publish"
+    "tslint": "tslint --project src/tsconfig.json"
   },
   "keywords": [
     "iframes",
