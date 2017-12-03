@@ -9,5 +9,5 @@ export function inject(target: HTMLElement): ChildWindow {
 }
 
 export function injectIntoBody(): ChildWindow {
-    return this.inject(document.body);
+    return inject(document.body);
 }
