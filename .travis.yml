@@ -4,10 +4,11 @@ node_js:
   - "node"
 before_script:
   - npm install
-  - npm version preminor -f
+  - npm version prepatch -f
 script:
   - npm run compile
 deploy:
   provider: npm
   email: "yenthe@spectra.one"
   api_key: $NPM_TOKEN
+  tag: 'beta'
