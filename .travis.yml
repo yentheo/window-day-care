@@ -2,11 +2,12 @@ language: node_js
 node_js:
   - "6"
   - "node"
-env:
-  - NPM_TOKEN=10df05eb-95d9-44ef-b123-b051e996646f
 before_script:
   - npm install
   - npm version preminor
 script:
   - npm run compile
-  - npm publish --access=public
+deploy:
+  provider: npm
+  email: "yenthe@spectra.one"
+  api_key: $NPM_TOKEN
