@@ -3,7 +3,7 @@ node_js:
   - "6"
   - "node"
 env:
-  - IS_TRAVIS=true
+  - NPM_TOKEN=10df05eb-95d9-44ef-b123-b051e996646f
 before_script:
   - npm install
   - npm version preminor
