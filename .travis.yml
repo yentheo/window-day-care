@@ -3,7 +3,7 @@ node_js:
   - "6"
 before_script:
   - npm install
-  - npm version prepatch -f
+  - npm version patch -f
 script:
   - npm run compile
   - git add .
