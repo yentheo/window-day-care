@@ -9,8 +9,7 @@ window-day-care is an npm package for easily creating pop-up windows and iframe-
 
 1. Try out this snippet
     ```js
-        import { injectIntoBody, openPopUp, openTab } from "../src";
-        import { isChildWindow, getChildWindowHost } from "../src/child-window";
+        import { injectIntoBody, openPopUp, openTab, isChildWindow, getChildWindowHost } from "@spectra/window-day-care";
 
         // make sure our document is loaded
         window.addEventListener('load', () => {
@@ -30,3 +29,14 @@ window-day-care is an npm package for easily creating pop-up windows and iframe-
         });
 
     ```
+
+## Opening different types of windows
+
+This library lets you open pop-ups, tabs and you can easily add iframes. They can all be added with helper-methods.
+
+* `injectIntoBody(): ChildWindow`
+* `inject(target: HTMLElement): ChildWindow`
+* `openTab(): ChildWindow`
+* `openPopUp(name: string, options: PopUpOptions): ChildWindow`
+
+After opening a child window, you can set it's location with the `setLocation(url: string): Promise<void>` method. This method returns a _Promise-object_ that is resolved when the page is loaded.

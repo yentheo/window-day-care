@@ -52,6 +52,6 @@ export function openPopUp(name: string = 'pop-up', popUpOptions: PopUpOptions = 
     return new PopUp(window.open('', name, options));
 }
 
-export function openTab(url: string = null): ChildWindow {
-    return new PopUp(window.open(''));
+export function openTab(name: string = 'pop-up'): ChildWindow {
+    return new PopUp(window.open('', name));
 }
