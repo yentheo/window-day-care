@@ -1,5 +1,5 @@
 [![npm version](https://badge.fury.io/js/%40spectra%2Fwindow-day-care.svg)](https://badge.fury.io/js/%40spectra%2Fwindow-day-care)
-
+[![Build Status](https://travis-ci.org/yentheo/window-day-care.svg?branch=master)](https://travis-ci.org/yentheo/window-day-care)
 # window-day-care
 
 window-day-care is an npm package for easily creating pop-up windows and iframe-elements and communicating between parent and child window.
