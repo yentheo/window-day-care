@@ -33,9 +33,10 @@ export const DefaultPopUpOptions: PopUpOptions = {
 function optionsToString(options: PopUpOptions): string {
     const allOptions = extend(options);
     return `height=${allOptions.height},width=${allOptions.width}`
-        + `,status=${allOptions.status ? '1' : '0'},resizable=${allOptions.toolbar ? '1' : '0'}`
+        + `,status=${allOptions.status ? '1' : '0'},resizable=${allOptions.resizable ? '1' : '0'}`
         + `,toolbar=${allOptions.toolbar ? '1' : '0'},minimizable=${allOptions.minimizable ? '1' : '0'}`
-        + `,fullscreen=${allOptions.fullscreen ? '1' : '0'},centerscreen=${allOptions.centerscreen ? '1' : '0'}`;
+        + `,fullscreen=${allOptions.fullscreen ? '1' : '0'},centerscreen=${allOptions.centerscreen ? '1' : '0'}`
+        + `,left=${allOptions.left},top=${allOptions.top}`;
 }
 
 function extend(obj: { [key: string]: any }): PopUpOptions {
