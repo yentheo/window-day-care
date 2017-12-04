@@ -7,6 +7,8 @@ before_script:
 script:
   - npm run compile
   - git add .
+after_script:
+  - git push https://${GH_TOKEN}@github.com/yentheo/window-day-care.git
 deploy:
   provider: npm
   email: "yenthe@spectra.one"
