@@ -8,9 +8,9 @@ script:
 after_script:
   - git log origin/master..HEAD
   - git diff origin/master..HEAD
-  - npm config set git-tag-version false
   - git checkout master
   - npm version patch -f
+  - git reset HEAD~1
   - git log origin/master..HEAD
   - git diff origin/master..HEAD
   - git status
