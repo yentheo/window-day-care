@@ -9,6 +9,7 @@ after_script:
   - git checkout master
   - npm version patch -f
   - git add .
+  - git commit -m '[skip ci]'
   - git push https://${GH_TOKEN}@github.com/yentheo/window-day-care.git
 deploy:
   provider: npm
