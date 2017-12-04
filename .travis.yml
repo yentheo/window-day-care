@@ -6,8 +6,12 @@ before_script:
 script:
   - npm run compile
 after_script:
+  - git log origin/master..HEAD
+  - git diff origin/master..HEAD
   - git checkout master
   - npm version patch -f
+  - git log origin/master..HEAD
+  - git diff origin/master..HEAD
   - git status
   - git add .
   - git status
