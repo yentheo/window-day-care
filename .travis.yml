@@ -6,20 +6,12 @@ before_script:
 script:
   - npm run compile
 after_script:
-  - git log origin/master..HEAD
-  - git diff origin/master..HEAD
+  - npm config set git-tag-version false
   - git checkout master
   - npm version patch -f
-  - git reset HEAD~1
-  - git log origin/master..HEAD
-  - git diff origin/master..HEAD
-  - git status
   - git add .
-  - git status
   - git commit -m 'version [ci skip]'
-  - git status
   - git push https://${GH_TOKEN}@github.com/yentheo/window-day-care.git
-  - git status
 deploy:
   provider: npm
   email: "yenthe@spectra.one"
