@@ -5,12 +5,6 @@ before_script:
   - npm install
 script:
   - npm run compile
-after_script:
-  - git checkout master
-  - npm version patch -f
-  - git add .
-  - git commit -m 'version [ci skip]'
-  - git push https://${GH_TOKEN}@github.com/yentheo/window-day-care.git
 deploy:
   provider: npm
   email: "yenthe@spectra.one"
