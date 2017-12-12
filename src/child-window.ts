@@ -54,7 +54,7 @@ export function isIframe(): boolean {
 
 /** Checks whether we're in a pop up at the moment. */
 export function isPopUp(): boolean {
-    return window.opener !== null;
+    return !!window.opener;
 }
 
 /** Checks whether we're in a child window at the moment. */
