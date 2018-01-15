@@ -66,6 +66,9 @@ export function isChildWindow(): boolean {
 export class ChildWindowHost {
 
     private get _parent(): Window {
+        console.log(window.parent);
+        console.log(window.opener);
+        console.log(isIframe());
         if (isIframe()) {
             return window.parent;
         } else if (isPopUp) {

@@ -1,12 +1,13 @@
 import { injectIntoBody, openPopUp, openTab } from '../src';
 import { getChildWindowHost, isChildWindow } from '../src/child-window';
+import { inject } from '../src/iframe.creator';
 
 // make sure our document is loaded
 window.addEventListener('load', () => {
     // check if we're in a child window
     if (!isChildWindow()) { // if not...
         // lets inject an iframe into the body
-        const iframe = openPopUp();
+        const iframe = injectIntoBody();
         // subscribe to the messages of the newly created iframe
         // tslint:disable-next-line:no-console
         iframe.message$.subscribe(x => console.log(x));
